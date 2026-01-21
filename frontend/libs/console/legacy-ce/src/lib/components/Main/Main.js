@@ -447,45 +447,8 @@ class Main extends React.Component {
                   </Link>
                 </div>
                 {/* Compensate legacy styles directly with style attribute */}
-                <div className={styles.proWrapper} style={{ padding: '0' }}>
-                  <div className={itemContainerStyle}>
-                    <div
-                      className={clsx(
-                        linkStyle,
-                        isPopUpOpen && activeLinkStyle
-                      )}
-                      onClick={this.onProIconClick}
-                    >
-                      <span className="text-sm self-baseline">
-                        <FaInfoCircle />
-                      </span>
-                      <span className="uppercase text-left">CLOUD</span>
-                    </div>
-                  </div>
-                  {isPopUpOpen && <ProPopup toggleOpen={this.toggleProPopup} />}
-                </div>
 
                 <Help isSelected={currentActiveBlock === 'support'} />
-                <NotificationSection
-                  isDropDownOpen={this.state.isDropdownOpen}
-                  closeDropDown={this.closeDropDown}
-                  toggleDropDown={this.toggleDropDown}
-                />
-                {!this.state.loveConsentState.isDismissed ? (
-                  <div className="bootstrap-jail">
-                    <div
-                      id="dropdown_wrapper"
-                      className={`self-stretch h-full ${
-                        this.state.isLoveSectionOpen ? 'open' : ''
-                      }`}
-                    >
-                      <LoveSection
-                        closeLoveSection={this.closeLoveSection}
-                        toggleLoveSection={this.toggleLoveSection}
-                      />
-                    </div>
-                  </div>
-                ) : null}
               </div>
             </div>
           </div>
@@ -493,12 +456,6 @@ class Main extends React.Component {
           <div className={styles.main + ' container-fluid'}>
             {getMainContent()}
           </div>
-
-          <UpdateVersion
-            closeUpdateBanner={this.closeUpdateBanner}
-            dispatch={this.props.dispatch}
-            updateNotificationVersion={this.state.updateNotificationVersion}
-          />
         </div>
         <ConsoleDevTools />
       </div>
